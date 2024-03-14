@@ -21,17 +21,27 @@ public class Administrador extends Usuario {
 
     @Override
     public String crear() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return "INSERT INTO administradores (password,rol,id_usuario) VALUES('"+this.password+"','"+this.rol+"','"+this.id+"')";
     }
 
     @Override
     public String editar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String respuesta=null;
+        if(this.id != 0){
+            respuesta = "UPDATE administradores SET password = '"+this.password+"', rol = '"+this.rol+"' WHERE administradores.id = "+this.id;
+        }
+        
+        return respuesta;
     }
 
     @Override
     public String eliminar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String respuesta=null;
+        if(this.id != 0){
+            respuesta = "DELETE FROM administradores WHERE id_usuario = "+this.id;
+        }
+        
+        return respuesta;
     }
 
     public String getPassword() {

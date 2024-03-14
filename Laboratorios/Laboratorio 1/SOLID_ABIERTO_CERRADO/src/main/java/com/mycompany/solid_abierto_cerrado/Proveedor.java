@@ -15,21 +15,35 @@ public class Proveedor extends Usuario{
         super(nombres, apellidos, sexo, direccion, correo, celular);
         this.nit = nit;
         this.codigo = codigo;
+        this.id=0;
+        
+        
+        
     }
 
     @Override
     public String crear() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return "INSERT INTO proveedores (nit,codigo,id_usuario) VALUES('"+this.nit+"','"+this.codigo+"','"+this.id+"')";
     }
 
     @Override
     public String editar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String respuesta=null;
+        if(this.id != 0){
+            respuesta = "UPDATE proveedores SET nit = '"+this.nit+"', codigo = '"+this.codigo+"' WHERE proveedores.id = "+this.id;
+        }
+        
+        return respuesta;
     }
 
     @Override
     public String eliminar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String respuesta=null;
+        if(this.id != 0){
+            respuesta = "DELETE FROM proveedores WHERE id_usuario = "+this.id;
+        }
+        
+        return respuesta;
     }
 
     public String getNit() {

@@ -15,6 +15,7 @@ public abstract class Usuario {
     protected String direccion;
     protected String correo;
     protected String celular;
+    protected int id;
 
     protected Usuario(String nombres, String apellidos, String sexo, String direccion, String correo, String celular) {
         this.nombres = nombres;
@@ -23,6 +24,7 @@ public abstract class Usuario {
         this.direccion = direccion;
         this.correo = correo;
         this.celular = celular;
+        this.id=0;
     }
    
     public abstract String crear();
@@ -30,6 +32,16 @@ public abstract class Usuario {
     public abstract String editar();
 
     public abstract String eliminar();
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    
 
     public String getNombres() {
         return nombres;

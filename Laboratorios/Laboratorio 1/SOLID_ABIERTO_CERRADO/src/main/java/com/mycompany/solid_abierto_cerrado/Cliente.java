@@ -11,6 +11,7 @@ package com.mycompany.solid_abierto_cerrado;
 public class Cliente extends Usuario{
     
     String puntos,codigo;
+    
 
     public Cliente(String puntos, String codigo, String nombres, String apellidos, String sexo, String direccion, String correo, String celular) {
         super(nombres, apellidos, sexo, direccion, correo, celular);
@@ -24,17 +25,27 @@ public class Cliente extends Usuario{
 
     @Override
     public String crear() {
-        return "INSERT INTO clientes (puntos,codigo) VALUES('"+this.puntos+"','"+this.codigo+"')";
+        return "INSERT INTO clientes (puntos,codigo,id_usuario) VALUES('"+this.puntos+"','"+this.codigo+"','"+this.id+"')";
     }
 
     @Override
     public String editar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String respuesta=null;
+        if(this.id != 0){
+            respuesta = "UPDATE clientes SET puntos = '"+this.puntos+"', codigo = '"+this.codigo+"' WHERE clientes.id = "+this.id;
+        }
+        
+        return respuesta;
     }
 
     @Override
     public String eliminar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String respuesta=null;
+        if(this.id != 0){
+            respuesta = "DELETE FROM clientes WHERE id_usuario = "+this.id;
+        }
+        
+        return respuesta;
     }
 
     public String getPuntos() {
