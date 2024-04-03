@@ -2,20 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package com.mycompany.zoologico.mamiferos;
+package Interfaces;
+
+import Interfaces.IAve;
 
 /**
  *
  * @author HP
  */
-public interface IMamifero {
-    public double getTemperatura();
+public interface IAnimalFactory {
     
-    String nombre="";
-    double temperatura=0;
-    int numeroPatas=0;
-    String color="";
-    
-    
-    
+    public IMamifero createMamifero(String animal);
+    public IPez createPez(String animal);
+    public IAve createAve(String animal);
 }
